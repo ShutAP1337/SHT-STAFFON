@@ -1,0 +1,24 @@
+"Phrases"
+{
+  "chat_title"
+  {
+    "pt"    "{green}<{default}----------=[ STAFF ONLINE ]=----------{green}>"
+    "en"    "{green}<{default}----------=[ STAFF ONLINE ]=----------{green}>"
+    "ru"    "{green}<{default}----------=[ ПЕРСОНАЛ ОНЛАЙН ]=----------{green}>"
+  }
+
+  "chat_staffon"
+  {
+    "#format" "{1:s}"
+    "pt"    "{green}ONLINE {default}-=> {orange}{1}"
+    "en"    "{green}ONLINE {default}-=> {orange}{1}"
+    "ru"    "{green}ОНЛАЙН {default}-=> {orange}{1}"
+  }
+
+  "chat_end"
+  {
+    "pt"    "{green}<{default}--------------------------------------{green}>"
+    "en"    "{green}<{default}--------------------------------------{green}>"
+    "ru"    "{green}<{default}--------------------------------------{green}>"
+  }
+}
