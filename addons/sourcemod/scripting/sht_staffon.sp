@@ -49,39 +49,43 @@ public void OnPluginStart()
 
 public Action Online_Staff(int client, int args)
 {
-	CreateTimer(1.0, Online_Staff_Message, client);
-}
-
-public Action Online_Staff_Message(Handle iTimer, int client)
-{
 	char traducao[256];
 	Format(traducao, sizeof(traducao), "%t", "chat_title");
 	CPrintToChat(client, "%s", traducao);
 	
-	for (int i = 1; i <= MaxClients; i++)
+	for (int i = 1; i < MAXPLAYERS+1; i++)
 	{
 		char flag[2];
 		char nome[MAX_NAME_LENGTH];
 		int flag_vip = EMP_Flag_StringToInt(flag);
 		GetConVarString(sht_staffon_flag, flag, sizeof(flag));
-		GetClientName(i, nome, sizeof(nome));
-		if(EMP_IsValidClient(i) && Client_HasAdminFlags(i, flag_vip)) {
-			int hide_spec = GetConVarInt(sht_staffon_hide_spec);
-			if(hide_spec == 1) {
-				if(GetClientTeam(i) == CS_TEAM_SPECTATOR) {
-					
-				} else {
+		if(EMP_IsValidClient(i) && IsClientInGame(i) && Client_HasAdminFlags(i, flag_vip)) {
+			GetClientName(i, nome, sizeof(nome));
+			if(i < 0) {
+				Format(traducao, sizeof(traducao), "%t", "chat_staffoff");
+				CPrintToChat(client, "%s", traducao);				
+			} else {				
+				int hide_spec = GetConVarInt(sht_staffon_hide_spec);
+				if(hide_spec == 1) {
+					if(GetClientTeam(i) == CS_TEAM_SPECTATOR) {
+						
+					} else {
+						Format(traducao, sizeof(traducao), "%t", "chat_staffon", nome);
+						CPrintToChat(client, "%s", traducao);
+					}				
+				}
+				else {
 					Format(traducao, sizeof(traducao), "%t", "chat_staffon", nome);
 					CPrintToChat(client, "%s", traducao);
-				}				
+				}
 			}
-			else {
-				Format(traducao, sizeof(traducao), "%t", "chat_staffon", nome);
-				CPrintToChat(client, "%s", traducao);
-			}
+		} else {
+			
 		}
 	}
 	
 	Format(traducao, sizeof(traducao), "%t", "chat_end");
 	CPrintToChat(client, "%s", traducao);
+	
+	return Plugin_Handled;
 }
