@@ -56,7 +56,7 @@ public Action Online_Staff_Message(Handle iTimer, int client)
 {
 	char traducao[256];
 	Format(traducao, sizeof(traducao), "%t", "chat_title");
-	CPrintToChat(client, "%t", traducao);
+	CPrintToChat(client, "%s", traducao);
 	
 	for (int i = 1; i <= MaxClients; i++)
 	{
@@ -67,21 +67,21 @@ public Action Online_Staff_Message(Handle iTimer, int client)
 		GetClientName(i, nome, sizeof(nome));
 		if(EMP_IsValidClient(i) && Client_HasAdminFlags(i, flag_vip)) {
 			int hide_spec = GetConVarInt(sht_staffon_hide_spec);
-			if(hide_spec == 1) {
+			if(hide_spec == CS_TEAM_SPECTATOR) {
 				if(GetClientTeam(i) == 1) {
 					
 				} else {
 					Format(traducao, sizeof(traducao), "%t", "chat_staffon");
-					CPrintToChat(client, "%t", traducao, nome);
+					CPrintToChat(client, "%s", traducao, nome);
 				}				
 			}
 			else {
 				Format(traducao, sizeof(traducao), "%t", "chat_staffon");
-				CPrintToChat(client, "%t", traducao, nome);
+				CPrintToChat(client, "%s", traducao, nome);
 			}
 		}
 	}
 	
 	Format(traducao, sizeof(traducao), "%t", "chat_end");
-	CPrintToChat(client, "%t", traducao);
+	CPrintToChat(client, "%s", traducao);
 }
