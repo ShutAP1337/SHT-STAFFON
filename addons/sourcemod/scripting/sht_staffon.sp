@@ -67,8 +67,8 @@ public Action Online_Staff_Message(Handle iTimer, int client)
 		GetClientName(i, nome, sizeof(nome));
 		if(EMP_IsValidClient(i) && Client_HasAdminFlags(i, flag_vip)) {
 			int hide_spec = GetConVarInt(sht_staffon_hide_spec);
-			if(hide_spec == CS_TEAM_SPECTATOR) {
-				if(GetClientTeam(i) == 1) {
+			if(hide_spec == 1) {
+				if(GetClientTeam(i) == CS_TEAM_SPECTATOR) {
 					
 				} else {
 					Format(traducao, sizeof(traducao), "%t", "chat_staffon");
