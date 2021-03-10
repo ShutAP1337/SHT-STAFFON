@@ -71,13 +71,13 @@ public Action Online_Staff_Message(Handle iTimer, int client)
 				if(GetClientTeam(i) == CS_TEAM_SPECTATOR) {
 					
 				} else {
-					Format(traducao, sizeof(traducao), "%t", "chat_staffon");
-					CPrintToChat(client, "%s", traducao, nome);
+					Format(traducao, sizeof(traducao), "%t", "chat_staffon", nome);
+					CPrintToChat(client, "%s", traducao);
 				}				
 			}
 			else {
-				Format(traducao, sizeof(traducao), "%t", "chat_staffon");
-				CPrintToChat(client, "%s", traducao, nome);
+				Format(traducao, sizeof(traducao), "%t", "chat_staffon", nome);
+				CPrintToChat(client, "%s", traducao);
 			}
 		}
 	}
