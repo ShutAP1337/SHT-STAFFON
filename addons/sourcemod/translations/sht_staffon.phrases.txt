@@ -2,9 +2,9 @@
 {
   "chat_title"
   {
-    "pt"    "{green}<{default}----------=[ STAFF ONLINE ]=----------{green}>"
-    "en"    "{green}<{default}----------=[ STAFF ONLINE ]=----------{green}>"
-    "ru"    "{green}<{default}----------=[ ПЕРСОНАЛ ОНЛАЙН ]=----------{green}>"
+    "pt"    "{green}<{default}----------=[ {orange}STAFF ONLINE{default} ]=----------{green}>"
+    "en"    "{green}<{default}----------=[ {orange}STAFF ONLINE{default} ]=----------{green}>"
+    "ru"    "{green}<{default}----------=[ {orange}ПЕРСОНАЛ ОНЛАЙН{default} ]=----------{green}>"
   }
 
   "chat_staffon"
@@ -13,6 +13,14 @@
     "pt"    "{green}ONLINE {default}-=> {orange}{1}"
     "en"    "{green}ONLINE {default}-=> {orange}{1}"
     "ru"    "{green}ОНЛАЙН {default}-=> {orange}{1}"
+  }
+
+  "chat_staffoff"
+  {
+    "#format" "{1:s}"
+    "pt"    "Não estão staffs {green}online{default}!"
+    "en"    "There are no staffs {green}online{default}!"
+    "ru"    "В сети нет {green}посохов{default}!"
   }
 
   "chat_end"
